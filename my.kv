@@ -1,0 +1,78 @@
+<ConnectionScreen>:
+    hostname: hostname
+    port: port
+    user: user
+    passwd: passwd
+    info: info
+    GridLayout:
+        cols:1
+        size: root.width , root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "hostname: "
+
+            TextInput:
+                id: hostname
+                multiline:False
+                halign: 'center'
+                valign: 'center'
+
+            Label:
+                text: "port: "
+
+            TextInput:
+                id: port
+                multiline:False
+                halign: 'center'
+                valign: 'center'
+                
+
+            Label:
+                text: "user: "
+
+            TextInput:
+                id: user
+                multiline:False
+                halign: 'center'
+                valign: 'center'
+
+            Label:
+                text: "passwd: "
+
+            TextInput:
+                id: passwd
+                multiline:False
+                halign: 'center'
+                valign: 'center'
+
+
+        Button:
+            text:"Submit"
+            on_press: root.pressed()
+            size_hint: 1, 0.1
+        Label:
+            id: info
+            text: "hostname:x.x.x.x(ip address) | port:x | user:? | passwd:?"
+            size_hint: 1, 0.1
+<ControlScreen>:
+    my_text_input: my_text_input
+    my_text_output: my_text_output
+    orientation : 'vertical'
+    GridLayout:
+        cols: 1
+
+        TextInput:
+            id: my_text_output
+            readonly: True
+            multiline: False
+            text : ""
+
+        TextInput:
+            id: my_text_input
+            multiline: False
+            text : ""
+            size_hint: 1, 0.1
+            on_text_validate: root.on_enter()
